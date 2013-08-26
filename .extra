@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# less color syntax support
+#
+
+LESSPIPE=`which src-hilite-lesspipe.sh`
+export LESSOPEN="| ${LESSPIPE} %s"
+export LESS='-R'
+
+# shell aliases
+#
+
+alias ll='la'
+alias subl='"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl"'
+alias file_monitor='sudo fs_usage -w -f filesys'
+alias network_monitor='sudo fs_usage -w -f network'
+alias more='less'
+
+# titanium 
+# 
+
+alias adb-restart="adb kill-server && adb start-server && adb devices"
+alias fastdev='titanium fastdev start'
+alias logcat='adb logcat'
+
+# PHP / MySQL / Laravel
+# 
+
+alias art='php artisan'
+alias arts='php artisan serve'
+alias phpserv='php -S 127.0.0.1:8008'
+alias mysqlserver='sudo /usr/local/mysql/support-files/mysql.server'
+alias pu='phpunit'
+
+# Android
+#
+
+export NUM_CPUS=4
+export NDK_CCACHE=/usr/local/bin/ccache
+export JAVA_HOME=$(/usr/libexec/java_home)
+# TODO edit to match your Android SDK/NDK folder
+export ANDROID_SDK=~/Development/adt/sdk
+export ANDROID_NDK=~/Development/android-ndk-r8d
+
+export PATH=/usr/local/bin:${JAVA_HOME}/bin:$PATH
+export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platforms:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
+export PATH=/usr/local/php5:/usr/local/mysql/bin/mysql:$PATH
+
+# load more user specific settings
+# make a file named .{username}
+# e.g. .moshem
+#
+
+[ -r ".$(whoami)" ] && source ".$(whoami)"
+
+
+
