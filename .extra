@@ -11,7 +11,7 @@ export LESS='-R'
 #
 
 alias ll='la'
-alias subl='"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl"'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias file_monitor='sudo fs_usage -w -f filesys'
 alias network_monitor='sudo fs_usage -w -f network'
 alias more='less'
@@ -31,6 +31,8 @@ alias arts='php artisan serve'
 alias phpserv='php -S 127.0.0.1:8008'
 alias mysqlserver='sudo /usr/local/mysql/support-files/mysql.server'
 alias pu='phpunit'
+alias mysql_start='mysql.server start'
+alias mysql_stop='mysql.server stop'
 
 # Android
 #
@@ -51,7 +53,5 @@ export PATH=/usr/local/php5:/usr/local/mysql/bin/mysql:$PATH
 # e.g. .moshem
 #
 
-[ -r ".$(whoami)" ] && source ".$(whoami)"
-
-
+[ -f ~/.$(whoami) ] && source ~/.$(whoami)
 
