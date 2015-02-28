@@ -9,6 +9,16 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
+<<<<<<< HEAD
+if tput setaf 1 &> /dev/null; then
+	tput sgr0
+	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+		MAGENTA=$(tput setaf 9)
+		ORANGE=$(tput setaf 172)
+		GREEN=$(tput setaf 190)
+		PURPLE=$(tput setaf 141)
+		WHITE=$(tput setaf 7)
+=======
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -54,6 +64,7 @@ prompt_git() {
 		[ -n "${s}" ] && s=" [${s}]";
 
 		echo -e "${1}${branchName}${blue}${s}";
+>>>>>>> upstream/master
 	else
 		return;
 	fi;
